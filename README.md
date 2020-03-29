@@ -5,7 +5,10 @@
 
 ### Features
 
-This features dhiraj trying to code
+- Email-based Sign Up
+- Email-based Sign In
+- Authenticated User Persistence
+- Sign Out
 
 ### Try it out
 
@@ -16,3 +19,5 @@ authentication, and then copy your authentication config values over to the
 
 Fire it up with `yarn start`.
 
+Give the authentication a whirl. Can you sign up with a new email and
+password? Sign out? Sign in with the account you just created?

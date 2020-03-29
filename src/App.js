@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.png'
 import {
   BrowserRouter as Router,
   Link,
@@ -26,6 +26,7 @@ const UnauthenticatedHomeContent = () => {
         <Link to={routes.SIGN_UP_PATH}>sign up</Link>
       </p>
     </React.Fragment>
+    
   );
 };
 
@@ -105,7 +106,7 @@ const ListNav = () => {
   return (
     <React.Fragment>
       <li>
-        <Link to={routes.LIST_PATH}>Shopping List</Link>
+        <Link to={routes.LIST_PATH}>People in Need</Link>
       </li>
       
     </React.Fragment>
@@ -161,11 +162,9 @@ class App extends Component {
         <Router>
           <div className="App">
             <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">
-                Dhiraj Super Cool App
-              </h1>
+            <img src={logo} width={100} height={100}/>
             </header>
+            <br/>
             <Navigation />
             <Switch>
               <Route exact path={routes.HOME_PATH} component={Home} />

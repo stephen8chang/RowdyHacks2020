@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
+//import Stores from './components/Stores'
 import firebase from './firebase/firebase';
+import Stores from './components/Stores';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+  } from 'reactstrap';
+  import { render } from 'react-dom';
+import { withScriptjs } from "react-google-maps";
+import Map from './Map';
+import './style.css';
+import * as routes from './constants/routes';
 
 class List extends Component {
     constructor(props) {
@@ -9,7 +20,9 @@ class List extends Component {
         this.ref = firebase.firestore().collection('board');
         this.unsubscribe = null;
         this.state = {
-          boards: []
+          boards: [],
+          ids:[],
+          page:0
         };
       }
     
@@ -34,16 +47,55 @@ class List extends Component {
       }
     
       render() {
+        const { ids } = this.state;
+        if(this.state.page==0){
+            return (
+              <div class="container">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      People
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    
+                    
+                    <Card body>
+                    <CardTitle>Ben</CardTitle>
+                    <CardText>Lives 10 miles away</CardText>
+                    <CardText>Needs 26 items</CardText>
+                    <Button onClick={() => this.setState({page:1})}>Help</Button>
+                </Card>
+                <Card body className="text-center">
+                <CardTitle>Barak</CardTitle>
+                <CardText>Lives 15 miles away</CardText>
+                    <CardText>Needs 15 items</CardText>
+                    <Button onClick={() => this.setState({page:1})}>Help</Button>
+                </Card>
+                <Card body className="text-center">
+                <CardTitle>Jeb</CardTitle>
+                <CardText>Lives 17 miles away</CardText>
+                    <CardText>Needs 21 items</CardText>
+                    <Button onClick={() => this.setState({page:1})}>Help</Button>
+                </Card>
+                <br/>
+                <Button onClick={() => this.setState({page:1})}>Back</Button>
+                  </div>
+                </div>
+              </div>
+            );
+                        
+                        }
+          if(this.state.page==1){
         return (
           <div class="container">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  BOARD LIST
+                  SHOPPING LIST
                 </h3>
               </div>
               <div class="panel-body">
-                <h4><Link to="/create" class="btn btn-primary">Add Board</Link></h4>
                 <table class="table table-stripe">
                   <thead>
                     <tr>
@@ -60,10 +112,20 @@ class List extends Component {
                     )}
                   </tbody>
                 </table>
+                <Link  to={routes.MAP_PATH}>Continue</Link>
+
               </div>
             </div>
           </div>
         );
+                    
+                    }
+
+                   
+
+                                    
+
+
       }
 }
 

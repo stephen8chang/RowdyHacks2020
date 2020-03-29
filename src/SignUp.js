@@ -39,30 +39,35 @@ class SignUp extends React.Component {
           };
 
           return (
-            <div>
-              <h1>Sign Up</h1>
-              <form onSubmit={onSubmit}>
+            
+            <div >
+              <h1 >Sign Up</h1>
+              <br/>
+              <form onSubmit={onSubmit} class="w-50 mx-auto" >
                 {state.error &&
                   <p style={{ color: 'red' }}>
                     {state.error}
                   </p>}
-                <label htmlFor="email">Email</label>
+                  <label htmlFor="email">Email</label>
                 <input
                   type="text"
                   name="email"
+                  class="form-control"
                   value={state.email}
+                  
                   onChange={onEmailChange}
                 />
-
+                <br/>
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   name="password"
+                  class="form-control"
                   value={state.password}
                   onChange={onPasswordChange}
                 />
-
-                <button type="submit">Sign Up</button>
+                <br/>
+                <button type="submit" class="btn btn-success">Sign In</button>
               </form>
             </div>
           );

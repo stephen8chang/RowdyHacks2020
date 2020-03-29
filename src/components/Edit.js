@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from 'src\firebase\firebase.js';
+import firebase from '../firebase/firebase';
 import { Link } from 'react-router-dom';
 
 class Edit extends Component {
@@ -63,11 +63,11 @@ class Edit extends Component {
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">
-              EDIT BOARD
+              EDIT ITEMS
             </h3>
           </div>
           <div class="panel-body">
-            <h4><Link to={`/show/${this.state.key}`} class="btn btn-primary">Board List</Link></h4>
+            <h4><Link to={`/show/${this.state.key}`} class="btn btn-primary">Product List</Link></h4>
             <form onSubmit={this.onSubmit}>
               <div class="form-group">
                 <label for="Prpduct">Product:</label>

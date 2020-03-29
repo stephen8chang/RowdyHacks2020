@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from 'src\firebase\firebase.js';
+import firebase from '../firebase/firebase';
 import { Link } from 'react-router-dom';
 
 class Show extends Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from './logo.png'
+import cart from './cart.png'
 import {
   BrowserRouter as Router,
   Link,
@@ -14,17 +15,49 @@ import SignIn from './SignIn';
 import List from './List'
 import { firebase, auth, firestore } from './firebase';
 
+document.body.style.background = "#e9eff5"
 
 const UnauthenticatedHomeContent = () => {
   return (
     <React.Fragment>
-      <p>
-        Welcome, please <Link to={routes.SIGN_IN_PATH}>sign in</Link>
+      <p style={{    
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 25,
+    marginLeft: 250,
+    marginRight: 250
+    }} >
+        
+        Welcome! Thank you for trying to help our community in these trying times. With Shopping Buddy,
+        we make it easy for you to help people in need. Simply <Link to={routes.SIGN_UP_PATH}>sign up</Link>, and be taken to a page with people who
+        need help. Then click help, and open up a maps page to see directions to get groceries and where to drop them off.
+        Some people can't afford to go out right now and by signing up to help, you are making a difference in their lives.
+
+        {/* Welcome, please <Link to={routes.SIGN_IN_PATH}>sign in</Link> */}
       </p>
-      <p>
-        If you don't already have an account,{' '}
-        <Link to={routes.SIGN_UP_PATH}>sign up</Link>
+      <p style={{    
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: 15,
+    marginTop: 10,
+    marginLeft: 250,
+    marginRight: 250
+    }}>
+      Welcome, please <Link to={routes.SIGN_IN_PATH}>sign in </Link> if you already have an account.
+        
       </p>
+      <img src={cart} style={{marginTop: 202, marginLeft: 60, }}width={100} height={100}/>
+      <img src={cart} style={{marginTop: 202, marginLeft: 60, }}width={100} height={100}/>
+      <img src={cart} style={{marginTop: 202, marginLeft: 60, }}width={100} height={100}/>
+      <img src={cart} style={{marginTop: 50,  marginRight: 30}} width={250} height={250}/>
+      <img src={cart} style={{marginTop: 202, marginLeft: 20, }}width={100} height={100}/>
+      <img src={cart} style={{marginTop: 202, marginLeft: 60, }}width={100} height={100}/>
+      <img src={cart} style={{marginTop: 202, marginLeft: 60, }}width={100} height={100}/>
     </React.Fragment>
     
   );
@@ -32,9 +65,29 @@ const UnauthenticatedHomeContent = () => {
 
 const AuthenticatedHomeContent = ({ authUser }) => {
   return (
-    <p>
-      Welcome back, {authUser.email}!
+    <React.Fragment>
+    <p style={{    
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 25,
+    marginLeft: 250,
+    marginRight: 250
+    }} >
+      Welcome back, {authUser.email}! Volunteers like you are making it possible for the world to keep going during this pandemic. 
+      If you are ready to volunteer, click on the People in Need tab on the top right to see people you can help.
     </p>
+    <img src={cart} style={{marginTop: 302, marginLeft: 60, }}width={100} height={100}/>
+    <img src={cart} style={{marginTop: 302, marginLeft: 60, }}width={100} height={100}/>
+    <img src={cart} style={{marginTop: 302, marginLeft: 60, }}width={100} height={100}/>
+    <img src={cart} style={{marginTop: 150,  marginRight: 30}} width={250} height={250}/>
+    <img src={cart} style={{marginTop: 302, marginLeft: 20, }}width={100} height={100}/>
+    <img src={cart} style={{marginTop: 302, marginLeft: 60, }}width={100} height={100}/>
+    <img src={cart} style={{marginTop: 302, marginLeft: 60, }}width={100} height={100}/>
+  </React.Fragment>
+    
   );
 };
 
@@ -162,7 +215,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <header className="App-header">
-            <img src={logo} width={100} height={100}/>
+            <img src={logo} width={150} height={150}/>
             </header>
             <br/>
             <Navigation />
